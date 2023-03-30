@@ -1,12 +1,12 @@
 <div align="center" id="top"> 
-  <img src="./.github/app.gif" alt="Pixelemporium" />
+  <img src="./.github/app.gif" alt="DevTools" />
 
   &#xa0;
 
-  <!--   # <a href="https://portifolio-fernando.onrender.com" target="_blank">Site</a> -->
+  <!--   # <a href="" target="_blank">Site</a> -->
 </div>
 
-<h1 align="center">PixelEmporium</h1>
+<h1 align="center">DevTools</h1>
 
 <p align="center">
   <img alt="Github top language" src="https://img.shields.io/github/languages/top/fernando-juni0/pixelemporium?color=56BEB8">
@@ -39,16 +39,16 @@
 
 ## :dart: About ##
 
-It is a game hosting application that informs the trend of games and games for free, in addition to storing and selling indie games that can be registered by developers.
+
 
 ## :rocket: Technologies ##
 
 The following tools were used in this project:
 
 - [Node.js](https://nodejs.org/en/)
-- [EJS](https://ejs.co)
+<!-- - [EJS](https://ejs.co) -->
 - [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
-- [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+- [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript) 
 
 ## :white_check_mark: Requirements ##
 
@@ -61,7 +61,7 @@ Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) an
 $ git clone https://github.com/fernando-juni0/pixelemporium
 
 # Access
-$ cd pixelemporium
+$ cd devtools
 
 # Install dependencies
 $ npm install
@@ -69,8 +69,6 @@ $ npm install
 # Run the project
 $ npm start
 
-# The server will initialize in the <http://localhost:80>
-#It is possible to change the opening port of the server by creating a .ENV file and adding the following line: PORT='Your Port'
 ```
 
 ## :memo: License ##
@@ -78,7 +76,7 @@ $ npm start
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE) file.
 
 
-Made with :heart: by <a href="https://github.com/fernando-juni0" target="_blank">{{YOUR_NAME}}</a>
+Made with :heart: by <a href="https://github.com/fernando-juni0" target="_blank">Fernando Júnio</a>
 
 &#xa0;
 
