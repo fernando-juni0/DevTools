@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+body,html{
+    width: 100%;
+    height: 90%;
+}
+body{
+    background-color: rgb(146, 146, 146);
+}
+header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+header nav button{
+    border: 0;
+    padding: 15px;
+    margin: 5px 0 0 0;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: 600;
+    background-color: rgb(51, 51, 51);
+    transition: 0.5s;
+}
+header nav button:hover{
+    background-color: rgb(61, 61, 61);
+    transition: 0.5s;
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+main section{
+    background-color: rgba(0, 0, 0, 0.678);
+    margin-top: 25px;
+    width: 90%;
+    height: 100%;
+
+}
+hr{
+    border-top: none;
+    width: 100%;
+}
+.title{
+    color: rgb(255, 255, 255);
+}
+.inputs-containner {
+    text-align: start;
+    margin-top: 5px;
+}
+.inputs-containner span{
+    font-size: 1em;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+}
+.options-containner{
+    border: 1px solid #c7c7c7;
+    padding: 10px;
+    width: max-content;
+    text-align: center;
+    min-width: 180px;
+    z-index: 120;
+}
+#checks-download{
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+#button-baixar{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#baixar{
+    padding: 15px;
+    background-color: rgb(158, 4, 219);
+    transition: 5s;
+    border-radius: 20px;
+    width: 80%;
+    border: none;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+#baixar:hover{
+    background-color: rgb(125, 6, 172);
+    transition: 0.5s;
+}
