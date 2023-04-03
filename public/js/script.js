@@ -19,7 +19,6 @@ document.querySelectorAll('.menu-button').forEach(element => {
                 otimi.style.display = 'none'
                 config.style.display = 'block'
                 break;
-        
         }
     })
 });
@@ -47,7 +46,6 @@ document.querySelectorAll('.downloads-inputs').forEach(itens=>{
 
 
 document.getElementById('baixar').addEventListener('click',()=>{
-    
    if (downloadSelected.length <= 0 ) {
     alert('Selecione um Item')
    }else{
@@ -60,3 +58,39 @@ document.getElementById('baixar').addEventListener('click',()=>{
    }
     
 })
+
+
+// otimizacao-script
+
+
+var otmiSelected = []
+document.querySelectorAll('.otmi-inputs').forEach(itens=>{
+    itens.addEventListener('change', async (res)=>{
+        let data = itens.getAttribute('data-value')
+        let inc = otmiSelected.includes(data)
+
+        if (inc == false) {
+            otmiSelected.push(data)
+        }else{
+            const index = otmiSelected.indexOf(data);
+            if (index > -1) {
+                otmiSelected.splice(index, 1);
+            }
+        }
+    })
+})
+
+
+document.getElementById('otimizar').addEventListener('click',()=>{
+    if (otmiSelected.length <= 0 ) {
+     alert('Selecione um Item')
+    }else{
+        window.electronAPI.otimizacaoData(otmiSelected)
+        document.querySelectorAll('.downloads-inputs').forEach(itens=>{
+            itens.checked = false;
+        })
+        otmiSelected.length = 0
+        alert('Otimizando...')
+    }
+     
+ })

@@ -1,7 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path');
 const { exec, spawn} = require('child_process');
-
+const fs = require('fs')
 
 const createWindow = () => {
     const win = new BrowserWindow({
@@ -16,7 +16,7 @@ const createWindow = () => {
     })
     
     ipcMain.on('download-data', (event, data) => {
-        var array_data = []
+        let array_data = []
         data.forEach(itens=> {
             switch (itens) {
                 case 'nav-1':
@@ -38,7 +38,7 @@ const createWindow = () => {
                     array_data.push('choco install dotnet48')
                     break;
                 case "drive-3":
-                    array_data.push('iwr -Uri https://aka.ms/winget-cli -OutFile winget-cli.appxbundle; Add-AppxPackage .\winget-cli.appxbundle')
+                    array_data.push('iwr -Uri https://aka.ms/winget-cli -OutFile winget-cli.appxbundle')
                     break;
                 case "drive-4":
                     array_data.push('choco install driverbooster')
@@ -94,30 +94,96 @@ const createWindow = () => {
                     break;
                 case "dev-5":
                     array_data.push('winget install Microsoft.VisualStudio')
-                    break;   
-            
+                    break;  
             }
         })
         let convertData = array_data.toString().replace(/,/g, ';')
         spawn('powershell.exe', ['-Command', `Start-Process powershell -Verb RunAs -ArgumentList "${convertData}"`]);
     })
 
+    ipcMain.on('otimizacao-data', (event, data) => {
+        let array_data = []
+        data.forEach(itens=>{
+            switch (itens) {
+                case 'otmi-1':
+                    array_data.push('powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61')
+                    break;
+                case 'otmi-2':
+                    array_data.push('powercfg.exe /hibernate off')
+                    break;
+                case 'otmi-3':
+                    array_data.push('Set-ExecutionPolicy bypass')
+                    break;
+                case 'otmi-4':
+                    exec('cleanmgr.exe /sagerun:1')
+                    break;
+                case 'otmi-5':
+                    tempFiles()
+                    break;
+                case 'otmi-6':
+                    spawn('powershell.exe', ['-Command', `Start-Process powershell -Verb RunAs -ArgumentList "iwr -useb https://christitus.com/win | iex"`]);
+                    break;
+            }
+        })
+        let convertData = array_data.toString().replace(/,/g, ';')
+        spawn('powershell.exe', ['-Command', `Start-Process powershell -Verb RunAs -ArgumentList "${convertData}"`]);
+    })
+
+    ipcMain.on('config-data', (event, data) => {
+
+    })
+    
+    function tempFiles() {
+        const conteudo = `color c
+        /s /f /q c:/windows/temp/*.*
+        rd /s /q c:/windows/temp
+        md c:/windows/temp
+        del /s /f /q C:/WINDOWS/Prefetch
+        del /s /f /q %temp%/*.*
+        rd /s /q %temp%
+        md %temp%
+        deltree /y c:/windows/tempor~1
+        deltree /y c:/windows/temp
+        deltree /y c:/windows/tmp
+        deltree /y c:/windows/ff*.tmp
+        deltree /y c:/windows/history
+        deltree /y c:/windows/cookies
+        deltree /y c:/windows/recent
+        deltree /y c:/windows/spool/printers
+        del c:/WIN386.SWP
+        cls 
+        FOR /F "tokens=1, 2 * " %%V IN ('bcdedit') DO SET adminTest=%%V
+        IF (%adminTest%)==(Access) goto noAdmin
+        for /F " tokens=*" %%G in ('wevtutil.exe el') DO (call :do_clear "%%G")
+        echo.
+        echo Event Logs have been cleared! ^<press any key^>
+        goto theEnd
+        :do_clear
+        echo clearing %1
+        wevtutil.exe cl %1
+        goto :eof
+        :noAdmin
+        echo You must run this script as an Administrator !
+        echo ^<press any key^>
+        stop`
+
+        fs.writeFile('C:/clear.bat', conteudo, (err) => {
+            if (err) throw err;
+            console.log('Arquivo criado com sucesso!');
+        });
+        exec(`start powershell.exe -NoExit -Command "cd C:/ ;./clear.bat;exit"`);
+    }
+
     installChocolatey()
     async function installChocolatey() {
-        // comando para instalar o Chocolatey
         const command = 'Import-Module Microsoft.PowerShell.Security; Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString(\'https://chocolatey.org/install.ps1\'))';
-        
-        // executa o PowerShell como administrador
         const powershell = spawn('powershell.exe', ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', command], { shell: true });
-        
         powershell.stdout.on('data', (data) => {
             console.log(`stdout: ${data}`);
         });
-        
         powershell.stderr.on('data', (data) => {
             console.error(`stderr: ${data}`);
         });
-        
         return new Promise((resolve, reject) => {
             powershell.on('close', (code) => {
             if (code === 0) {
