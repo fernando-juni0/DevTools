@@ -3,19 +3,18 @@
 
   &#xa0;
 
-  <!--   # <a href="" target="_blank">Site</a> -->
 </div>
 
 <h1 align="center">DevTools</h1>
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/fernando-juni0/pixelemporium?color=56BEB8">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/fernando-juni0/DevTools?color=56BEB8">
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/fernando-juni0/pixelemporium?color=56BEB8">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/fernando-juni0/DevTools?color=56BEB8">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/fernando-juni0/pixelemporium?color=56BEB8">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/fernando-juni0/DevTools?color=56BEB8">
 
-  <img alt="License" src="https://img.shields.io/github/license/fernando-juni0/pixelemporium?color=56BEB8">
+  <img alt="License" src="https://img.shields.io/github/license/fernando-juni0/DevTools?color=56BEB8">
 </p>
 
 <p align="center">
@@ -39,14 +38,14 @@
 
 ## :dart: About ##
 
-
+Esse e um projeto que eu estou desenvolvendo para dar mais agilidade no processo de formatação do computador, nele sera possível baixar aplicativos essenciais, ativar otimizações e configurações para desenvolvedores.
 
 ## :rocket: Technologies ##
 
 The following tools were used in this project:
 
-- [Node.js](https://nodejs.org/en/)
-<!-- - [EJS](https://ejs.co) -->
+- [Electron](https://www.electronjs.org/pt/) 
+- [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
 - [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 - [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript) 
 
@@ -58,7 +57,7 @@ Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) an
 
 ```bash
 # Clone this project
-$ git clone https://github.com/fernando-juni0/pixelemporium
+$ git clone https://github.com/fernando-juni0/DevTools.git
 
 # Access
 $ cd devtools
